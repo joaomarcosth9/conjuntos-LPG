@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <limits.h>
 
-#ifdef __unix__
-#define clear_screen system("clear")
-#elif _WIN32
+#ifdef _WIN32
 #define clear_screen system("cls")
+#else
+#define clear_screen system("clear")
 #endif
 
 #define N 10 // MAX Conjuntos
