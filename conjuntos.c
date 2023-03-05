@@ -5,7 +5,8 @@
 #ifdef _WIN32
 #define clear_screen system("cls")
 #else
-#define clear_screen system("clear")
+#define clear_screen
+/* #define clear_screen system("clear") */
 #endif
 
 #define N 10 // MAX Conjuntos
@@ -80,7 +81,12 @@ void insere_no_conjunto(int v, set* st){
     int pos = st->size;
     st->arr[pos] = v;
     st->size++;
-    sort(st);
+    while(pos > 0 && (st->arr[pos] < st->arr[pos-1])){
+        int temp = st->arr[pos];
+        st->arr[pos] = st->arr[pos-1];
+        st->arr[pos-1] = temp;
+        pos--;
+    }
 }
 
 // insere dados em um set da matriz de sets
