@@ -5,8 +5,7 @@
 #ifdef _WIN32
 #define clear_screen system("cls")
 #else
-#define clear_screen
-/* #define clear_screen system("clear") */
+#define clear_screen system("clear")
 #endif
 
 #define N 10 // MAX Conjuntos
